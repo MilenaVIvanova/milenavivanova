@@ -1,4 +1,19 @@
-body { margin: 0; background: #f4ecd8; color: #2b2118; font-family: Georgia, 'Times New Roman', serif; }
+@font-face {
+  font-family: 'Lora';
+  src: url('fonts/lora-regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lora';
+  src: url('fonts/lora-italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+body { margin: 0; background: #f4ecd8; color: #2b2118; font-family: 'Lora', Georgia, 'Times New Roman', serif; }
 .top { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; }
 .top h1 { font-size: 1.3rem; font-weight: normal; margin: 0; }
 .top a { color: #7a2f23; }
