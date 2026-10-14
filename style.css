@@ -1,0 +1,18 @@
+body { margin: 0; background: #f4ecd8; color: #2b2118; font-family: Georgia, 'Times New Roman', serif; }
+.top { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; }
+.top h1 { font-size: 1.3rem; font-weight: normal; margin: 0; }
+.top a { color: #7a2f23; }
+main { display: flex; flex-direction: column; align-items: center; padding: 1rem; }
+.controls { display: flex; gap: 1rem; align-items: center; margin-top: 1rem; }
+.controls button { font: inherit; padding: .4rem .9rem; border: 1px solid #7a2f23; background: #fffaf0; color: #7a2f23; border-radius: 4px; cursor: pointer; }
+.page { background: #fffaf0; border: 1px solid #d9c9a3; box-sizing: border-box; overflow: hidden; container-type: inline-size; }
+.page.hard { background: #7a2f23; color: #f4ecd8; border-color: #5a2018; }
+.inner { height: 100%; box-sizing: border-box; padding: 8% 9%; font-size: 15px; font-size: 4.2cqw; line-height: 1.5; }
+.inner h3 { font-size: 1.2em; font-weight: normal; margin: 0 0 1em; text-align: center; }
+.inner small { font-size: .7em; color: #8a7a60; }
+.inner p { margin: 0 0 1em; }
+.cover { height: 100%; display: flex; flex-direction: column; justify-content: center; text-align: center; }
+.cover h2 { font-size: 1.8em; font-weight: normal; margin: 0 0 .5em; }
+.reading { max-width: 36rem; width: 100%; align-items: stretch; margin: 0 auto; }
+.reading article { margin: 3rem 0; }
+.reading h2 { font-weight: normal; }
