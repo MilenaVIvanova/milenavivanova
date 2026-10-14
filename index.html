@@ -58,10 +58,11 @@ BOOK.poems.forEach(poem => {
   });
   chunks.push(current);
 
-chunks.forEach((chunk, i) => {
+  chunks.forEach((chunk, i) => {
     const heading = i === 0 ? `<h3>${esc(poem.title)}</h3>` : '';
     const body = chunk.map(s => `<p>${esc(s).replace(/\n/g, '<br>')}</p>`).join('');
     addPage(`${heading}${body}`, false);
+  });
 });
 
 if ((book.children.length + 1) % 2 !== 0) addPage('', false);
