@@ -58,10 +58,10 @@ BOOK.poems.forEach(poem => {
   });
   chunks.push(current);
 
-  chunks.forEach((chunk, i) => {
-    const title = i === 0 ? esc(poem.title) : `${esc(poem.title)} <small>(продължение)</small>`;
+chunks.forEach((chunk, i) => {
+    const heading = i === 0 ? `<h3>${esc(poem.title)}</h3>` : '';
     const body = chunk.map(s => `<p>${esc(s).replace(/\n/g, '<br>')}</p>`).join('');
-    addPage(`<h3>${title}</h3>${body}`, false);
+    addPage(`${heading}${body}`, false);
   });
 });
 
