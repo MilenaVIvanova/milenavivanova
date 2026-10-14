@@ -17,7 +17,7 @@
 <script src='poems.js'></script>
 <script>
 function esc(s) {
-  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/ ([—–-]) /g, '\u00A0$1 ');
 }
 document.getElementById('site-title').textContent = BOOK.title;
 document.title = BOOK.title;
