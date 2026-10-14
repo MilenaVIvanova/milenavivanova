@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang='bg'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Поезия</title>
+<link rel='stylesheet' href='style.css'>
+</head>
+<body>
+<header class='top'>
+<h1 id='site-title'></h1>
+<nav><a href='index.html'>Книга</a></nav>
+</header>
+<main class='reading'>
+<div id='poems'></div>
+</main>
+<script src='poems.js'></script>
+<script>
+function esc(s) {
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+document.getElementById('site-title').textContent = BOOK.title;
+document.title = BOOK.title;
+document.getElementById('poems').innerHTML = BOOK.poems.map(p =>
+  `<article><h2>${esc(p.title)}</h2>` +
+  p.text.trim().split(/\n\s*\n/).map(s => `<p>${esc(s).replace(/\n/g, '<br>')}</p>`).join('') +
+  `</article>`
+).join('');
+</script>
+</body>
+</html>
