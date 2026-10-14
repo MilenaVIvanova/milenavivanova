@@ -28,7 +28,11 @@ document.getElementById('site-title').textContent = BOOK.title;
 document.title = BOOK.title;
 
 function esc(s) {
-  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/ ([—–-]) /g, '\u00A0$1 ');
+  return s.normalize('NFC')
+    .replace(/и[\u0300\u02CB\u00B4]/g, '\u045D')
+    .replace(/И[\u0300\u02CB\u00B4]/g, '\u040D')
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/ ([—–-]) /g, '\u00A0$1 ');
 }
 
 function addPage(html, hard) {
