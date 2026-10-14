@@ -82,7 +82,7 @@ flip.on('flip', update);
 update();
 document.getElementById('prev').onclick = () => flip.flipPrev();
 document.getElementById('next').onclick = () => flip.flipNext();
-  document.addEventListener('keydown', e => {
+document.addEventListener('keydown', e => {
   if (e.key === 'ArrowRight') flip.flipNext();
   if (e.key === 'ArrowLeft') flip.flipPrev();
 });
