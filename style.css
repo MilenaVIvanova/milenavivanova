@@ -1,17 +1,10 @@
 @font-face {
-  font-family: 'Lora';
-  src: url('fonts/lora-regular.ttf') format('truetype');
+  font-family: 'Barkentina 1';
+  src: url('Barkentina 1.otf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
-
-@font-face {
-  font-family: 'Lora';
-  src: url('fonts/lora-italic.ttf') format('truetype');
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
 }
 body { margin: 0; background: #f4ecd8; color: #2b2118; font-family: 'Lora', Georgia, 'Times New Roman', serif; }
 .top { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; }
