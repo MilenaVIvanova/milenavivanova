@@ -1,12 +1,11 @@
 @font-face {
-  font-family: 'Barkentina 1';
-  src: url('Barkentina 1.otf') format('truetype');
-  font-weight: 400;
+  font-family: 'Barkentina';
+  src: url('Barkentina%201.otf') format('opentype');
+  font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
-}
-body { margin: 0; background: #f4ecd8; color: #2b2118; font-family: 'Lora', Georgia, 'Times New Roman', serif; }
+body { margin: 0; background: #f4ecd8; color: #2b2118; font-family: 'Barkentina', Georgia, 'Times New Roman', serif; }
 .top { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; }
 .top h1 { font-size: 1.3rem; font-weight: normal; margin: 0; }
 .top a { color: #7a2f23; }
