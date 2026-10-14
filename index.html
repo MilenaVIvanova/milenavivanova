@@ -63,7 +63,6 @@ BOOK.poems.forEach(poem => {
     const body = chunk.map(s => `<p>${esc(s).replace(/\n/g, '<br>')}</p>`).join('');
     addPage(`${heading}${body}`, false);
   });
-});
 
 if ((book.children.length + 1) % 2 !== 0) addPage('', false);
 addPage(`<div class='cover'><p>Край</p></div>`, true);
