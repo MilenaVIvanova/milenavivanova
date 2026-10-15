@@ -1,4 +1,9 @@
 @font-face {
+  font-family: 'YiFix';
+  src: local('Times New Roman'), local('Arial'), local('Georgia');
+  unicode-range: U+040D, U+045D;
+}
+@font-face {
   font-family: 'Barkentina';
   src: url('Barkentina%201.otf') format('opentype');
   font-weight: normal;
