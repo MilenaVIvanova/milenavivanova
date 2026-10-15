@@ -18,8 +18,8 @@
 <script>
 function esc(s) {
   return s.normalize('NFC')
-    .replace(/и[\u0300\u02CB\u00B4]/g, '\u045D')
-    .replace(/И[\u0300\u02CB\u00B4]/g, '\u040D')
+    .replace(/и[\u0300\u0301\u02CB\u02CA\u00B4`]/g, '\u045D')
+    .replace(/И[\u0300\u0301\u02CB\u02CA\u00B4`]/g, '\u040D')
     .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 document.getElementById('site-title').textContent = BOOK.title;
