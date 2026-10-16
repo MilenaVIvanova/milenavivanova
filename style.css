@@ -32,4 +32,4 @@ main { display: flex; flex-direction: column; align-items: center; padding: 1rem
 .inner:has(.cover.full) { padding: 0; }
 .cover.full img { width: 100%; height: 100%; object-fit: cover; }
 page.hard:has(.cover.full) { background: #f2fefe; border-color: #f2fefe; }
-.cover.full img { object-fit: contain; }
+
