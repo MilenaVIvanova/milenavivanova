@@ -32,4 +32,9 @@ main { display: flex; flex-direction: column; align-items: center; padding: 1rem
 .inner:has(.cover.full) { padding: 0; }
 .cover.full img { width: 100%; height: 100%; object-fit: cover; }
 page.hard:has(.cover.full) { background: #f2fefe; border-color: #f2fefe; }
-
+body { background: #cfe3e4; color: #1f3a3d; }
+.top a { color: #2f7f86; }
+.controls button { border-color: #2f7f86; background: #f4ffff; color: #2f7f86; }
+.page { background: #fbfefe; border-color: #bcd5d7; }
+.page.hard { background: #2f7f86; color: #f4ffff; border-color: #2f7f86; }
+.inner small { color: #6f9a9d; }
