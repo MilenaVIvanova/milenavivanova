@@ -43,7 +43,7 @@ function addPage(html, hard) {
   book.appendChild(page);
 }
 
-addPage(`<div class='cover'><h2>${esc(BOOK.title)}</h2><p>${esc(BOOK.author)}</p></div>`, true);
+addPage(`<div class='cover full'><img src='cover.png' alt='Корица'></div>`, true);
 
 BOOK.poems.forEach(poem => {
   const stanzas = poem.text.trim().split(/\n\s*\n/);
