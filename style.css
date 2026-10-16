@@ -31,3 +31,5 @@ main { display: flex; flex-direction: column; align-items: center; padding: 1rem
 .reading h2 { font-weight: normal; }
 .inner:has(.cover.full) { padding: 0; }
 .cover.full img { width: 100%; height: 100%; object-fit: cover; }
+page.hard:has(.cover.full) { background: #f2fefe; border-color: #e8dcc4; }
+.cover.full img { object-fit: contain; }
