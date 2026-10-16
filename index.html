@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang='bg'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Поезия</title>
+<link rel='stylesheet' href='style.css'>
+</head>
+<body>
+<header class='top'>
+<h1 id='site-title'></h1>
+<nav><a href='text.html'>Текстова версия</a></nav>
+</header>
+<main>
+<div id='book'></div>
+<div class='controls'>
+<button id='prev'>← Назад</button>
+<span id='counter'></span>
+<button id='next'>Напред →</button>
+</div>
+</main>
+<script src='page-flip.browser.js'></script>
+<script src='poems.js'></script>
+<script>
+const MAX_LINES = 16;
+const book = document.getElementById('book');
+document.getElementById('site-title').textContent = BOOK.title;
+document.title = BOOK.title;
+
+function esc(s) {
+  return s.normalize('NFC')
+    .replace(/и[\u0300\u0301\u02CB\u02CA\u00B4`]/g, '\u045D')
+    .replace(/И[\u0300\u0301\u02CB\u02CA\u00B4`]/g, '\u040D')
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/ ([—–-]) /g, '\u00A0$1 ');
+}
+
+function addPage(html, hard) {
+  const page = document.createElement('div');
+  page.className = hard ? 'page hard' : 'page';
+  if (hard) page.dataset.density = 'hard';
+  page.innerHTML = `<div class='inner'>${html}</div>`;
+  book.appendChild(page);
+  return page;
+}
+
+const coverPage = addPage(`<div class='cover full'><img src='cover.jpg' alt='Корица'></div>`, true);
+coverPage.style.background = '#f4ffff';
+coverPage.style.borderColor = '#f4ffff';
+
+BOOK.poems.forEach(poem => {
+  const stanzas = poem.text.trim().split(/\n\s*\n/);
+  const chunks = [];
+  let current = [];
+  let count = 0;
+  stanzas.forEach(stanza => {
+    const lines = stanza.split('\n').length;
+    if (current.length && count + lines > MAX_LINES) {
+      chunks.push(current);
+      current = [];
+      count = 0;
+    }
+    current.push(stanza);
+    count += lines + 1;
+  });
+  chunks.push(current);
+
+  chunks.forEach((chunk, i) => {
+    const heading = i === 0 ? `<h3>${esc(poem.title)}</h3>` : '';
+    const body = chunk.map(s => `<p>${esc(s).replace(/\n/g, '<br>')}</p>`).join('');
+    addPage(`${heading}${body}`, false);
+  });
+});
+
+if ((book.children.length + 1) % 2 !== 0) addPage('', false);
+addPage(`<div class='cover'><p>Край</p></div>`, true);
+
+const flip = new St.PageFlip(book, {
+  width: 400, height: 560, size: 'stretch',
+  minWidth: 300, maxWidth: 520, minHeight: 420, maxHeight: 730,
+  showCover: true, maxShadowOpacity: 0.4
+});
+flip.loadFromHTML(document.querySelectorAll('.page'));
+
+const counter = document.getElementById('counter');
+function update() {
+  counter.textContent = (flip.getCurrentPageIndex() + 1) + ' / ' + flip.getPageCount();
+}
+flip.on('flip', update);
+update();
+document.getElementById('prev').onclick = () => flip.flipPrev();
+document.getElementById('next').onclick = () => flip.flipNext();
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight') flip.flipNext();
+  if (e.key === 'ArrowLeft') flip.flipPrev();
+});
+</script>
+</body>
+</html>
