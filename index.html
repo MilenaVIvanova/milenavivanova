@@ -54,7 +54,7 @@ BOOK.poems.forEach(poem => {
   let current = [];
   let count = 0;
   stanzas.forEach(stanza => {
-    const lines = stanza.split('\n').length;
+    const lines = stanza.split('\n').reduce((n, l) => n + Math.max(1, Math.ceil(l.length / 34)), 0);
     if (current.length && count + lines > MAX_LINES) {
       chunks.push(current);
       current = [];
