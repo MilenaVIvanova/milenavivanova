@@ -41,10 +41,11 @@ function addPage(html, hard) {
   if (hard) page.dataset.density = 'hard';
   page.innerHTML = `<div class='inner'>${html}</div>`;
   book.appendChild(page);
+  return page;
 }
-
-addPage(`<div class='cover full'><img src='cover.png' alt='Корица'></div>`, true);
-
+const coverPage = addPage(`<div class='cover full'><img src='cover.jpg' alt='Корица'></div>`, true);
+coverPage.style.background = '#f2fefe';
+coverPage.style.borderColor = '#f2fefe';
 BOOK.poems.forEach(poem => {
   const stanzas = poem.text.trim().split(/\n\s*\n/);
   const chunks = [];
